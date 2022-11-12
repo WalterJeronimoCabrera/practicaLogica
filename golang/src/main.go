@@ -3,10 +3,9 @@ package main
 import (
 		"fmt"
 	)
-	
 
 func main(){
-	fmt.Println(isAnagrama("amor", "roma"))
+	primosEntreDosNumeros(1, 100)
 }
 
 /*
@@ -47,4 +46,28 @@ func isAnagrama(unaPalabra string, otraPalabra string) bool{
 		auxiliar[i], auxiliar[j] = auxiliar[j], auxiliar[i]
 	}
 	return string(auxiliar) == otraPalabra
+}
+
+/*
+ * Reto #3
+ * Enunciado: Escribe un programa que se encargue de comprobar si un número es o no primo.
+ * Hecho esto, imprime los números primos entre 1 y 100.
+ */
+
+func isPrimo(unNumero int) bool{
+	var divisores int = 2
+	for i := unNumero; i > 0; i-- {
+		if unNumero % i == 0 {
+			divisores--
+		} 
+	}
+	return divisores == 0
+}
+
+func primosEntreDosNumeros(desdeNumero int, hastaNumero int)  {
+	for i := desdeNumero; i <= hastaNumero; i++ {
+		if isPrimo(i){
+			fmt.Println(i)
+		}
+	}
 }
